@@ -1,0 +1,39 @@
+{% extends 'base1.html' %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+		<div class="heading mt-4">
+			<h2>Incomes</h2>
+		</div>
+		<div class="sub-head mt-4 mb-2">
+			<h4>All Income</h4>
+		</div>
+		<table class="table table-striped">
+				<tr>
+					<th>Income Title</th>
+					<th>Description</th>
+					<th>Last Transaction</th>
+					<th>Amount</th>
+					<th>Timestamp</th>
+					<th>Wallet</th>
+					<th></th>
+					<th></th>
+				</tr>
+				{% for income in all_incomes %}
+				<tr>
+					<td>{{income.title}}</td>
+					<td>{{income.description}}</td>
+					<td>{{income.amount}}</td>
+					<td>{{income.timestamp}}</td>
+					<td>{{income.wallet}}</td>
+					<td><a href="/delete_wallet/{{wallet.id}}">Delete</a></td>
+					<td><a href="edit_wallet/{{wallet.id}}">Edit</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+{% endblock %}

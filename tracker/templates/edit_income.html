@@ -1,0 +1,26 @@
+{% extends 'base1.html' %}
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<div class="heading mt-4">
+				<h4>Edit your Income</h4>
+			</div>
+			<form action="/edit_income/{{income.id}}/" method="POST">
+				{% csrf_token %}
+				<div class="form-group">
+					<label>Title</label>
+					<input type="text" name="income_title" class="form-control" value="{{income.title}}">
+				</div>
+				<div class="form-group">
+					<label>Amount</label>
+					<input type="number" name="income_amount" class="form-control" value="{{income.amount}}">
+				</div>
+				<button type="submit" class="btn btn-secondary">Save</button>
+			</form>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+{% endblock %}
